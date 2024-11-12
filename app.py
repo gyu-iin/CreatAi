@@ -3,7 +3,7 @@ from openai import OpenAI
 
 st.title("GPT-4O사용")
 st.write("API KEY")
-key = st.text_input("API KEY를 작성하세요", type="password")
+key = st.text_input('API KEY를 작성하세요', type="password")
 client = OpenAI(api_key=f"{key}")
 
 messages = [
@@ -11,7 +11,7 @@ messages = [
 ]
 
 while True:
-  query = st.text_input("무엇을 묻고싶나요? / 종료하고싶다면 exit","오늘 저녁을 추천해줘")
+  query = st.text_input('무엇을 묻고싶나요? / 종료하고싶다면 exit')
   if query == "exit":
     break
   messages.append({"role": "user", "content": query})
