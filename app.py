@@ -11,7 +11,7 @@ messages = [
 ]
 
 while True:
-  query = input("Enter your query: ")
+  query = st.text_input("Enter your query")
   if query == "exit":
     break
   messages.append({"role": "user", "content": query})
@@ -19,6 +19,6 @@ while True:
       model = "gpt-4o-mini",
       messages = messages
   )
-  print(response.choices[0].message.content)
-  print("")
+  st.write(response.choices[0].message.content)
+  st.write("")
   messages.append({"role": "assistant", "content": response.choices[0].message.content})
