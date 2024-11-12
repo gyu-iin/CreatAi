@@ -11,19 +11,19 @@ messages = [
 ]
 
 
-query = st.text_input('무엇을 묻고싶나요?')
-messages.append({"role": "user", "content": query})
-response1 = client.chat.completions.create(
-  model = "gpt-4o-mini",
-  messages = messages
-)
-st.write(f"{response1.choices[0].message.content}")
-st.write("")
-messages.append({"role": "assistant", "content": response1.choices[0].message.content})
+# query = st.text_input('무엇을 묻고싶나요?')
+# messages.append({"role": "user", "content": query})
+# response = client.chat.completions.create(
+#   model = "gpt-4o-mini",
+#   messages = messages
+# )
+# st.write(f"{response.choices[0].message.content}")
+# st.write("")
+# messages.append({"role": "assistant", "content": response.choices[0].message.content})
 
 img = st.text_input('생성하고싶은 이미지를 입력하세요')
-response2 = client.images.generate(
+response = client.images.generate(
     model="dall-e-3",
     prompt=img)
-image_url = response2.data[0].url
+image_url = response.data[0].url
 st.markdown("![alt text](image_url)")
