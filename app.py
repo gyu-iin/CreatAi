@@ -26,4 +26,4 @@ response = client.images.generate(
     model="dall-e-3",
     prompt=img)
 image_url = response.data[0].url
-st.markdown("![alt text](image_url)")
+st.image(image_url)
