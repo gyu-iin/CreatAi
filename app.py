@@ -3,8 +3,8 @@ from openai import OpenAI
 
 st.title("GPT-4O사용")
 st.write("API KEY")
-st.text_input(label, type="password")
-client = OpenAI(api_key=f"{label}")
+key = st.text_input(label, type="password")
+client = OpenAI(api_key=f"{key}")
 
 messages = [
     {"role": "system", "content": "너는 질문에 대답하는 AI야."}
