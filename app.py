@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 
-st.title("GPT-4O사용")
+st.title("GPT-4O mini 사용")
 st.write("API KEY")
 key = st.text_input('API KEY를 작성하세요', type="password")
 client = OpenAI(api_key=f"{key}")
