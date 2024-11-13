@@ -19,9 +19,8 @@ def ask_answer(prompt):
 
 st.title("GPT-4O mini 사용")
 st.write("API KEY")
-Apikey = st.text_input('API KEY를 작성하세요', type="password")
-st.session_state.Apikey
-client = OpenAI(api_key=f"{Apikey}")
+Apikey = st.text_input('API KEY를 작성하세요', type="password", key = "Apikey")
+client = OpenAI(api_key=f"{st.session_state.Apikey}")
 
 prompt = st.text_area("Prompt")
 st.text(ask_answer(prompt))
