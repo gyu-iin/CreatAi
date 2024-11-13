@@ -9,12 +9,12 @@ def ask_answer(prompt):
     
     answer = ''
     
-    if st.button("Generate"):
-        response = client.chat.completions.create(
-            model = "gpt-4o-mini",
-            messages = messages
-        )
-        answer = response.choices[0].message.content
+    response = client.chat.completions.create(
+        model = "gpt-4o-mini",
+        messages = messages
+    )
+    answer = response.choices[0].message.content
+    
     return answer
 
 st.title("GPT-4O mini 사용")
