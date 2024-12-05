@@ -1,42 +1,36 @@
-from tkinter.tix import COLUMN
-from pyparsing import empty
 import streamlit as st
-import numpy as np
-import pandas as pd
-from PIL import Image
 
 st.set_page_config(layout="wide")
-empty1,con1,empty2 = st.columns([0.3,1.0,0.3])
-empyt1,con2,con3,empty2 = st.columns([0.3,0.5,0.5,0.3])
-empyt1,con4,empty2 = st.columns([0.3,1.0,0.3])
-empyt1,con5,con6,empty2 = st.columns([0.3,0.5,0.5,0.3])
 
-def main() :
+st.title('Streamlit 앱 레이아웃 구성하기')
 
-    with empty1 :
-        empty() # 여백부분1
-   
-    with con1 :
-        이미지
+with st.expander('이 앱에 대하여'):
+  st.write('이 앱은 Streamlit 앱을 구성하는 다양한 방법을 보여줍니다.')
+  st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
 
-    with con2 :
-        셀렉트박스
-        라디오버튼
-        라디오버튼
+st.sidebar.header('입력')
+user_name = st.sidebar.text_input('당신의 이름은 무엇인가요?')
+user_emoji = st.sidebar.selectbox('이모티콘 선택', ['', '😄', '😆', '😊', '😍', '😴', '😕', '😱'])
+user_food = st.sidebar.selectbox('가장 좋아하는 음식은?', ['', 'Tom Yum Kung', 'Burrito', 'Lasagna', 'Hamburger', 'Pizza'])
 
-    with con3 :
-     	데이터프레임
+st.header('출력')
 
-    with con4 :
-		긴 셀렉트박스
+col1, col2, col3 = st.columns(3)
 
-    with con5 :
-		동영상 
-     
-    with con6 :
-		동영상 제목
-        동영상 설명
+with col1:
+  if user_name != '':
+    st.write(f'👋 안녕하세요 {user_name}님!')
+  else:
+    st.write('👈  **이름**을 입력해 주세요!')
 
-    with empty2 :
-	   empty() # 여백부분2
-출처: https://python-programming-diary.tistory.com/137 [웹디자인 그리고, 클라우드 기반 인공지능 개발과 DevOps 실무:티스토리]
+with col2:
+  if user_emoji != '':
+    st.write(f'{user_emoji}는 당신이 좋아하는 **이모티콘**입니다!')
+  else:
+    st.write('👈 **이모티콘**을 선택해 주세요!')
+
+with col3:
+  if user_food != '':
+    st.write(f'🍴 **{user_food}**은 당신이 좋아하는 **음식**입니다!')
+  else:
+    st.write('👈 가장 좋아하는 **음식**을 선택해 주세요!')
