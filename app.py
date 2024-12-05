@@ -1,26 +1,42 @@
+from tkinter.tix import COLUMN
+from pyparsing import empty
 import streamlit as st
-from openai import OpenAI
+import numpy as np
+import pandas as pd
+from PIL import Image
 
-@st.cache_data
-def ask_answer(prompt):
-    messages = [
-        {"role": "user", "content": prompt}
-    ]
-    
-    answer = ''
-    
-    response = client.chat.completions.create(
-        model = "gpt-4o-mini",
-        messages = messages
-    )
-    answer = response.choices[0].message.content
-    
-    return answer
+st.set_page_config(layout="wide")
+empty1,con1,empty2 = st.columns([0.3,1.0,0.3])
+empyt1,con2,con3,empty2 = st.columns([0.3,0.5,0.5,0.3])
+empyt1,con4,empty2 = st.columns([0.3,1.0,0.3])
+empyt1,con5,con6,empty2 = st.columns([0.3,0.5,0.5,0.3])
 
-st.title("GPT-4O mini 사용")
-st.write("API KEY")
-Apikey = st.text_input('API KEY를 작성하세요', type="password", key = "Apikey")
-client = OpenAI(api_key=f"{st.session_state.Apikey}")
+def main() :
 
-prompt = st.text_area("Prompt")
-st.text(ask_answer(prompt))
+    with empty1 :
+        empty() # 여백부분1
+   
+    with con1 :
+        이미지
+
+    with con2 :
+        셀렉트박스
+        라디오버튼
+        라디오버튼
+
+    with con3 :
+     	데이터프레임
+
+    with con4 :
+		긴 셀렉트박스
+
+    with con5 :
+		동영상 
+     
+    with con6 :
+		동영상 제목
+        동영상 설명
+
+    with empty2 :
+	   empty() # 여백부분2
+출처: https://python-programming-diary.tistory.com/137 [웹디자인 그리고, 클라우드 기반 인공지능 개발과 DevOps 실무:티스토리]
